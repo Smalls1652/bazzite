@@ -48,8 +48,7 @@ desktop-file-edit --set-key=Hidden --set-value=true \
     /usr/share/applications/btop.desktop
 desktop-file-edit --set-key=Hidden --set-value=true \
     /usr/share/applications/yad-icon-browser.desktop
-desktop-file-edit --set-key=Hidden --set-value=true \
-    /usr/share/applications/com.microsoft.edit.desktop
+rm /usr/share/applications/com.microsoft.edit.desktop
 
 # -- 6. Configure Bluetooth input --
 echo "==> Configuring Bluetooth input..."
