@@ -27,7 +27,7 @@ cp --archive --verbose --force \
     /
 
 # Deck builds
-if [[ "${FINAL_STAGE}" == "bazzite-deck" ]]; then
+if [[ "${BUILD_DECK}" == "TRUE" ]]; then
     echo "--- Starting deck build ---"
 
     cp --archive --verbose --force \
@@ -43,7 +43,7 @@ if [[ "${FINAL_STAGE}" == "bazzite-deck" ]]; then
 fi
 
 # Nvidia builds
-if [[ "${FINAL_STAGE}" == "bazzite-nvidia" ]]; then
+if [[ "${BUILD_NVIDIA}" == "TRUE" ]]; then
     echo "--- Starting nvidia build ---"
 
     cp --archive --verbose --force \

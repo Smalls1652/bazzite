@@ -393,7 +393,9 @@ def build_args(
         "VERSION_TAG": version_tag,
         "VERSION_PRETTY": version_pretty,
         "ARCH": variant.arch,
-        "FINAL_STAGE": variant.container_target
+        "FINAL_STAGE": variant.container_target,
+        "BUILD_DECK": str("deck" in variant.image).upper(),
+        "BUILD_NVIDIA": str("nvidia" in variant.image).upper(),
     }
 
 
