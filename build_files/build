@@ -5,7 +5,7 @@ echo "--- Starting core build ---"
 
 /ctx/bazzite/copy-brew-files
 
-cp --archive --force \
+cp --archive --verbose --force \
     /tmp/system_files/desktop/shared/ \
     /tmp/system_files/desktop/$BASE_IMAGE_NAME/ \
     /
@@ -22,7 +22,7 @@ cp --archive --force \
 /ctx/bazzite/ublue-os-media-automount-udev
 /ctx/bazzite/finalize-image-type
 
-cp --archive --force \
+cp --archive --verbose --force \
     /tmp/system_files/overrides/ \
     /
 
@@ -30,7 +30,7 @@ cp --archive --force \
 if [[ "${FINAL_STAGE}" == "bazzite-deck" ]]; then
     echo "--- Starting deck build ---"
 
-    cp --archive --force \
+    cp --archive --verbose --force \
         /tmp/system_files/deck/shared/ \
         /tmp/system_files/deck/$BASE_IMAGE_NAME/ \
         /
@@ -45,8 +45,8 @@ fi
 # Nvidia builds
 if [[ "${FINAL_STAGE}" == "bazzite-nvidia" ]]; then
     echo "--- Starting nvidia build ---"
-    
-    cp --archive --force \
+
+    cp --archive --verbose --force \
         /tmp/system_files/nvidia/shared/ \
         /tmp/system_files/nvidia/$BASE_IMAGE_NAME/ \
         /
