@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 
+echo "Build deck   = ${BUILD_DECK}"
+echo "Build nvidia = ${BUILD_NVIDIA}"
+echo ""
+
 # Desktop/Core builds
 echo "--- Starting core build ---"
 
 /ctx/bazzite/copy-brew-files
 
 cp --archive --verbose --force \
-    /tmp/system_files/desktop/shared/ \
-    /tmp/system_files/desktop/$BASE_IMAGE_NAME/ \
+    /tmp/system_files/desktop/shared/**/* \
+    /tmp/system_files/desktop/$BASE_IMAGE_NAME/**/* \
     /
 
 /ctx/bazzite/install-nonfree-firmware-blobs
@@ -31,8 +35,8 @@ if [[ "${BUILD_DECK}" == "TRUE" ]]; then
     echo "--- Starting deck build ---"
 
     cp --archive --verbose --force \
-        /tmp/system_files/deck/shared/ \
-        /tmp/system_files/deck/$BASE_IMAGE_NAME/ \
+        /tmp/system_files/deck/shared/**/* \
+        /tmp/system_files/deck/$BASE_IMAGE_NAME/**/* \
         /
 
     /ctx/bazzite-deck/configure-desktop
@@ -47,8 +51,8 @@ if [[ "${BUILD_NVIDIA}" == "TRUE" ]]; then
     echo "--- Starting nvidia build ---"
 
     cp --archive --verbose --force \
-        /tmp/system_files/nvidia/shared/ \
-        /tmp/system_files/nvidia/$BASE_IMAGE_NAME/ \
+        /tmp/system_files/nvidia/shared/**/* \
+        /tmp/system_files/nvidia/$BASE_IMAGE_NAME/**/* \
         /
 
     /ctx/bazzite-nvidia/remove-nvidia-conflicts
