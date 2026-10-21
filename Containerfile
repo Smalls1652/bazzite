@@ -81,3 +81,16 @@ RUN --mount=type=cache,dst=/var/cache \
     --mount=type=tmpfs,dst=/tmp \
     --mount=type=secret,id=GITHUB_TOKEN \
     /ctx/build
+
+RUN --mount=type=cache,dst=/var/cache \
+    --mount=type=cache,dst=/var/log \
+    --mount=type=bind,from=ctx,source=/,target=/ctx \
+    --mount=type=tmpfs,dst=/tmp \
+    /ctx/image-info \
+    && /ctx/build-initramfs \
+    && /ctx/finalize \
+    && /ctx/cleanup
+
+RUN --mount=type=tmpfs,target=/run \
+    --network=none \
+    bootc container lint

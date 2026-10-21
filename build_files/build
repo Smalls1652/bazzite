@@ -62,9 +62,3 @@ fi
 
 # Finalize
 /ctx/reset-mtimes
-/ctx/image-info
-/ctx/build-initramfs
-/ctx/finalize
-/ctx/cleanup
-
-bootc container lint
