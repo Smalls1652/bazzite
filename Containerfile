@@ -74,6 +74,7 @@ RUN --mount=type=cache,dst=/var/cache \
     --mount=type=bind,from=akmods,src=/rpms/kmods,dst=/tmp/rpms/kmods \
     --mount=type=bind,from=akmods-extra,src=/rpms/extra,dst=/tmp/rpms/extra \
     --mount=type=bind,from=akmods-extra,src=/rpms/kmods,dst=/tmp/rpms/kmods-extra \
+    --mount=type=bind,from=akmods-nvidia,src=/rpms,dst=/tmp/rpms/nvidia \
     --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=bind,from=brew,source=/system_files,target=/tmp/brew_files \
     --mount=type=bind,from=system_files,source=/,target=/tmp/system_files \
