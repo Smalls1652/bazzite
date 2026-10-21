@@ -40,6 +40,7 @@ ARG FINAL_STAGE="${FINAL_STAGE:-bazzite}"
 ARG BUILD_DECK="FALSE"
 ARG BUILD_NVIDIA="FALSE"
 
+FROM ${BASE_IMAGE} AS base-image
 FROM ghcr.io/ublue-os/akmods:${KERNEL_FLAVOR}-${FEDORA_VERSION}-${KERNEL_VERSION} AS akmods
 FROM ghcr.io/ublue-os/akmods-extra:${KERNEL_FLAVOR}-${FEDORA_VERSION}-${KERNEL_VERSION} AS akmods-extra
 FROM ghcr.io/ublue-os/akmods-${NVIDIA_FLAVOR}:${KERNEL_FLAVOR}-${FEDORA_VERSION}-${KERNEL_VERSION} AS akmods-nvidia
@@ -51,7 +52,7 @@ COPY build_files /
 FROM scratch AS system_files
 COPY system_files /
 
-FROM ${BASE_IMAGE} AS bazzite
+FROM base-image AS bazzite
 
 ARG IMAGE_NAME="${IMAGE_NAME:-bazzite}"
 ARG IMAGE_VENDOR="${IMAGE_VENDOR:-ublue-os}"
